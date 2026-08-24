@@ -9,12 +9,10 @@ class BST:
     def insert(self, root, name, time, purpose):
         if root is None:
             return Node(name, time, purpose)
-
         if name < root.name:
             root.left = self.insert(root.left, name, time, purpose)
         else:
             root.right = self.insert(root.right, name, time, purpose)
-
         return root
     def search(self, root, name):
         if root is None or root.name == name:
@@ -47,6 +45,16 @@ class BST:
             self.inorder(root.left)
             print(root.name, root.time, root.purpose)
             self.inorder(root.right)
+    def preorder(self, root):
+        if root:
+            print(root.name, root.time, root.purpose)
+            self.preorder(root.left)
+            self.preorder(root.right)
+    def postorder(self, root):
+        if root:
+            self.postorder(root.left)
+            self.postorder(root.right)
+            print(root.name, root.time, root.purpose)
     def count(self, root):
         if root is None:
             return 0
@@ -59,8 +67,9 @@ while True:
     print("3. Delete")
     print("4. Display")
     print("5. Count")
-    print("6. Exit")
-
+    print("6. Preorder")
+    print("7. Postorder")
+    print("8. Exit")
     choice = int(input("Enter your choice: "))
     if choice == 1:
         name = input("Enter visitor name: ")
@@ -85,6 +94,12 @@ while True:
     elif choice == 5:
         print("Total entries:", bst.count(root))
     elif choice == 6:
+        print("\nPreorder Traversal:")
+        bst.preorder(root)
+    elif choice == 7:
+        print("\nPostorder Traversal:")
+        bst.postorder(root)
+    elif choice == 8:
         print("Program ended.")
         break
     else:
