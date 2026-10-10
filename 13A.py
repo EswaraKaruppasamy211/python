@@ -1,6 +1,7 @@
-n = int(input())
-a = list(map(int, input().split()))
-x = int(input())
+
+n = int(input("Enter number of students: "))
+a = list(map(int, input("Enter roll numbers: ").split()))
+x = int(input("Enter roll number to search: "))
 
 found = False
 for i in range(n):
@@ -9,9 +10,9 @@ for i in range(n):
         break
 
 if found:
-    print("Linear Search: Element found")
+    print("Linear Search: Roll Number found")
 else:
-    print("Linear Search: Element not found")
+    print("Linear Search: Roll Number not found")
 
 a.sort()
 low = 0
@@ -29,6 +30,6 @@ while low <= high:
         high = mid - 1
 
 if found:
-    print("Binary Search: Element found")
+    print("Binary Search: Roll Number found")
 else:
-    print("Binary Search: Element not found")
+    print("Binary Search: Roll Number not found")
