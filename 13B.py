@@ -1,5 +1,6 @@
-n = int(input())
-a = list(map(int, input().split()))
+
+n = int(input("Enter number of elements: "))
+a = list(map(int, input("Enter the elements: ").split()))
 
 b = a.copy()
 for i in range(n):
